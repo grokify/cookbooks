@@ -111,8 +111,8 @@ You can also restart LiteSpeed from the command line. In Red Hat use:
 ```
 
 <a name="discuss"></a>
-Discuss
--------
+Discussion
+----------
 
 Discussion on this recipe can be found on the LiteSpeed forums:
 
