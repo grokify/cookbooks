@@ -13,7 +13,9 @@ Table of Contents
   2. [Configuring the Catalyst FastCGI App] (#config-catalyst-fastcgi)
   3. [Configuring the Catalyst FastCGI App Context] (#config-catalyst-fastcgi-context)
 4. [Restarting LiteSpeed] (#restart)
-5. [Discussion] (#discuss)
+5. [Further Reading] (#further)
+  1. [Discussion] (#discuss)
+  2. [Related] (#related)
 6. [Meta] (#meta)
 
 <a name="overview"></a>
