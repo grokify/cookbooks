@@ -1,7 +1,7 @@
 Installing LiteSpeed and FastCGI for Catalyst
 =============================================
 
-* Date: 9 Mar 2006
+* Date: 18 Jul 2006
 
 Table of Contents
 -----------------
@@ -22,7 +22,7 @@ Overview
 
 LiteSpeed (http://litespeedtech.com/), along with lighttpd (http://www.lighttpd.net) and Zeus (http://www.zeus.com), are among the more popular event-driven web servers that are known for their high performance. Lighttpd is open source and Zeus is a fully commercial while LiteSpeed fits somewhere in the middle. LiteSpeed is a commercial web server that includes a free as in beer Standard offering as well as a Professional offering. In published benchmarks, it seems that LiteSpeed is somewhat faster than lighttpd.
 
-This article runs through a simple installation to get a Catalyst (http://www.catalystframework.org) app running on LiteSpeed with FastCGI. It is tested with Catalyst 5.65, LiteSpeed 2.1.12 Standard and CentOS 4.2. It only covers using Catalyst with a stand-alone FastCGI server using sockets and TCP. The static-mode configuration wasn't tested. LiteSpeed's Persistent FastCGI connection, which is known to have problems with Ruby, also was not tested. At this time, it's unknown if LiteSpeed can connect to multiple stand-alone FastCGI servers such as lighttpd's load-balancing configuration.
+This article runs through a simple installation to get a Catalyst (http://www.catalystframework.org)-based app running on LiteSpeed with FastCGI. It is tested with Catalyst 5.65, LiteSpeed 2.1.12 Standard and CentOS 4.2. It only covers using Catalyst with a stand-alone FastCGI server using sockets and TCP. The static-mode configuration wasn't tested. LiteSpeed also supports Persistent FastCGI and their own LSAPI (http://www.litespeedtech.com/products/lsapi/). LSAPI was developed due to an incompatibility with Ruby's FCGI. Currently LSAPI is only available for PHP and Ruby. Persistent FastCGI as not tested at this time. LiteSpeed does have built-in load balancing support which can be enabled by defining multiple FastCGI applications and then a "load balancer" app; this isn't covered at the moment but is on the list.
 
 <a name="install"></a>
 Installing LiteSpeed
@@ -66,7 +66,7 @@ Steps:
 Name: MyApp
 Address: UDS://tmp/myapp.socket
 Max Connections: 10
-Initial Request Timeout: 1
+Initial Request Timeout: 60
 Retry Timeout: 0
 Memory Soft Limit: 80M
 Memory Hard Limit: 100M
@@ -87,6 +87,8 @@ MyApp/script/myapp_fastcgi.pl -l /tmp/myapp.socket -n 5 -d
 MyApp/script/myapp_fastcgi.pl -l 1030 -n 5 -d
 ```
 
+NOTE: From mistwang of the LiteSpeed staff: qq[when an application's internal process manager is prefered, you can still let LiteSpeed start the parent process automatically, in that case, just set "instances" to "1", and set the command line parameter '-n' to match "Max Connections" and get rid of "-d" option.] This will be incorporated after it has been tested.
+
 <a name="config-catalyst-fastcgi-context"></a>
 ### Configuring the Catalyst FastCGI App Context
 
@@ -103,29 +105,37 @@ Restarting LiteSpeed
 
 Steps:
 
-1. Click on "Home" in the admin console and then click "Service Manager".
-1. Click "Graceful Restart" and your Catalyst app should now be accessible.
-
+1. Click on 'Home' in the admin console and then click "Service Manager".
+1. 
+Click "Graceful Restart" and your Catalyst app should now be accessible.
 You can also restart LiteSpeed from the command line. In Red Hat use:
 
 ```
 # service lsws restart
 ```
 
+<a name="further"></a>
+Further Reading
+---------------
+
 <a name="discuss"></a>
-Discussion
-----------
+### Discussion
 
 Discussion on this recipe can be found on the LiteSpeed forums:
 
 * [Tutorial in installing LiteSpeed with FastCGI and Catalyst] (http://www.litespeedtech.com/support/forum/threads/tutorial-in-installing-litespeed-with-fastcgi-and-catalyst.500/)
+
+<a name="related"></a>
+### Related
+
+* Installing lighttpd and FastCGI for Catalyst
 
 <a name="meta"></a>
 Meta
 ----
 
 * Author: John Wang
-* Date: 9 Mar 2006
+* Date: 18 Jul 2006
 * License: CC BY 3.0 US [https://creativecommons.org/licenses/by/3.0/us/](https://creativecommons.org/licenses/by/3.0/us/)
 
 END
