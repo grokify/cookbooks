@@ -1,22 +1,28 @@
 Installing LiteSpeed and FastCGI for Catalyst
 =============================================
 
-Author: John Wang
-Date: 9 Mar 2006
-License: CC BY 3.0 US [https://creativecommons.org/licenses/by/3.0/us/](https://creativecommons.org/licenses/by/3.0/us/)
+Meta
+----
+
+* Author: John Wang
+* Date: 9 Mar 2006
+* License: CC-BY-SA [https://creativecommons.org/licenses/by/3.0/us/](https://creativecommons.org/licenses/by/3.0/us/)
+
+Table of Contents
+
+1. [Installing LiteSpeed] (#install)
+2. [Configuring LiteSpeed] (#config)
+..1. [Configuring a Virtual Host] (#config-vhost)
+..2. [Configuring the Catalyst FastCGI App] (#config-catalyst-fastcgi)
+..3. [Configuring the Catalyst FastCGI App Context] (#config-catalyst-fastcgi-context)
+3. [Restarting LiteSpeed] (#restart)
+
+Overview
+--------
 
 LiteSpeed (http://litespeedtech.com/), along with lighttpd (http://www.lighttpd.net) and Zeus (http://www.zeus.com), are among the more popular event-driven web servers that are known for their high performance. Lighttpd is open source and Zeus is a fully commercial while LiteSpeed fits somewhere in the middle. LiteSpeed is a commercial web server that includes a free as in beer Standard offering as well as a Professional offering. In published benchmarks, it seems that LiteSpeed is somewhat faster than lighttpd.
 
-This article runs through a simple installation to get a Catalyst (http://www.catalystframework.org)-based app running on LiteSpeed with FastCGI. It is tested with Catalyst 5.65, LiteSpeed 2.1.12 Standard and CentOS 4.2. It only covers using Catalyst with a stand-alone FastCGI server using sockets and TCP. The static-mode configuration wasn't tested. LiteSpeed's Persistent FastCGI connection, which is known to have problems with Ruby, also was not tested. At this time, it's unknown if LiteSpeed can connect to multiple stand-alone FastCGI servers such as lighttpd's load-balancing configuration.
-
-Table of contents
-
-1 [Installing LiteSpeed] (#install)
-2 Configuring LiteSpeed
-2.1 Configuring a Virtual Host
-2.2 Configuring the Catalyst FastCGI App
-2.3 Configuring the Catalyst FastCGI App Context
-3 Restarting LiteSpeed
+This article runs through a simple installation to get a Catalyst (http://www.catalystframework.org) app running on LiteSpeed with FastCGI. It is tested with Catalyst 5.65, LiteSpeed 2.1.12 Standard and CentOS 4.2. It only covers using Catalyst with a stand-alone FastCGI server using sockets and TCP. The static-mode configuration wasn't tested. LiteSpeed's Persistent FastCGI connection, which is known to have problems with Ruby, also was not tested. At this time, it's unknown if LiteSpeed can connect to multiple stand-alone FastCGI servers such as lighttpd's load-balancing configuration.
 
 <a name="install"></a>
 Installing LiteSpeed
@@ -99,9 +105,4 @@ You can also restart LiteSpeed from the command line. In Red Hat use:
 # service lsws restart
 ```
 
-Meta
-----
-
-* Author: John Wang
-* Date: 9 Mar 2006
-* License: CC-BY-SA [https://creativecommons.org/licenses/by/3.0/us/](https://creativecommons.org/licenses/by/3.0/us/)
+END
