@@ -1,22 +1,21 @@
 Installing LiteSpeed and FastCGI for Catalyst
 =============================================
 
-Meta
-----
-
-* Author: John Wang
 * Date: 9 Mar 2006
-* License: CC-BY-SA [https://creativecommons.org/licenses/by/3.0/us/](https://creativecommons.org/licenses/by/3.0/us/)
 
 Table of Contents
+-----------------
 
-1. [Installing LiteSpeed] (#install)
-2. [Configuring LiteSpeed] (#config)
+1. [Overview] (#overview)
+2. [Installing LiteSpeed] (#install)
+3. [Configuring LiteSpeed] (#config)
 ..1. [Configuring a Virtual Host] (#config-vhost)
 ..2. [Configuring the Catalyst FastCGI App] (#config-catalyst-fastcgi)
 ..3. [Configuring the Catalyst FastCGI App Context] (#config-catalyst-fastcgi-context)
-3. [Restarting LiteSpeed] (#restart)
+4. [Restarting LiteSpeed] (#restart)
+5. [Metadata] (#meta)
 
+<a name="overview"></a>
 Overview
 --------
 
@@ -38,17 +37,20 @@ You can download the LiteSpeed Standard edition for free from http://litespeedte
 
 The installation script will ask you to select a port for the Admin server as well as an admin username and password. It will also install a startup script in /etc/init.d if you choose. For Red Hat/CentOS, the service is installed as lsws. By default, the binary is installed in /opt/lsws/bin/lshttpd
 
+<a name="config"></a>
 Configuring LiteSpeed
 ---------------------
 
 The default Admin server port is 7080. If you used that you can use your web browser to connect to http://localhost:7080 and login.
 
+<a name="config-vhost"></a>
 ### Configuring a Virtual Host
 
 * Click on "Server Configuration" on the admin server home page.
 * There is a Listener called Default enabled already. To add a virtual host to that listener, in the left nav column, click on the 'Default' link under the 'Listeners' link. This will bring up a page with the "Address Settings" and "Virtual Host Mappings". There's a virtual host called Example already configured.
 * To use the Example virtual host, click on 'Edit' and add the domains you'd like to use. Use commas to separate multiple domains like [myapp.com, www.myapp.com]. Click 'Save' and then 'Apply Changes' which is in the upper left corner and red now. The 'Add' link here doesn't seem to work as it brings you to the Example virtual host. To add a vitual host click on the 'Virtual Hosts' link in the left nav column and then click 'Add.' We won't do this for this quick setup.
 
+<a name="config-catalyst-fastcgi"</a>
 ### Configuring the Catalyst FastCGI App
 
 Steps:
@@ -82,6 +84,7 @@ MyApp/script/myapp_fastcgi.pl -l /tmp/myapp.socket -n 5 -d
 MyApp/script/myapp_fastcgi.pl -l 1030 -n 5 -d
 ```
 
+<a name="config-catalyst-fastcgi-context"></a>
 ### Configuring the Catalyst FastCGI App Context
 
 Now that the FastCGI app is configured, we need to let LiteSpeed know what URLs it will respond to. This is done by setting a LiteSpeed 'Context'.
@@ -91,6 +94,7 @@ Now that the FastCGI app is configured, we need to let LiteSpeed know what URLs 
 * This brings you to the "Static Context Definition" page. To have the Catalyst app handle the root directory enter / for URI and make sure 'FastCGI App' is set to the name you configured when setting the 'External App'. Click 'Save' and then 'Apply Changes'
 * You're done. Now just restart the webserver.
 
+<a name="restart"></a>
 Restarting LiteSpeed
 --------------------
 
@@ -104,5 +108,13 @@ You can also restart LiteSpeed from the command line. In Red Hat use:
 ```
 # service lsws restart
 ```
+
+<a name="meta"></a>
+Meta
+----
+
+* Author: John Wang
+* Date: 9 Mar 2006
+* License: CC-BY-SA [https://creativecommons.org/licenses/by/3.0/us/](https://creativecommons.org/licenses/by/3.0/us/)
 
 END
