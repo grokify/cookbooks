@@ -47,18 +47,20 @@ The default Admin server port is 7080. If you used that you can use your web bro
 <a name="config-vhost"></a>
 ### Configuring a Virtual Host
 
-* Click on "Server Configuration" on the admin server home page.
-* There is a Listener called Default enabled already. To add a virtual host to that listener, in the left nav column, click on the 'Default' link under the 'Listeners' link. This will bring up a page with the "Address Settings" and "Virtual Host Mappings". There's a virtual host called Example already configured.
-* To use the Example virtual host, click on 'Edit' and add the domains you'd like to use. Use commas to separate multiple domains like [myapp.com, www.myapp.com]. Click 'Save' and then 'Apply Changes' which is in the upper left corner and red now. The 'Add' link here doesn't seem to work as it brings you to the Example virtual host. To add a vitual host click on the 'Virtual Hosts' link in the left nav column and then click 'Add.' We won't do this for this quick setup.
+Steps:
+
+1. Click on "Server Configuration" on the admin server home page.
+1. There is a Listener called Default enabled already. To add a virtual host to that listener, in the left nav column, click on the 'Default' link under the 'Listeners' link. This will bring up a page with the "Address Settings" and "Virtual Host Mappings". There's a virtual host called Example already configured.
+1. To use the Example virtual host, click on 'Edit' and add the domains you'd like to use. Use commas to separate multiple domains like [myapp.com, www.myapp.com]. Click 'Save' and then 'Apply Changes' which is in the upper left corner and red now. The 'Add' link here doesn't seem to work as it brings you to the Example virtual host. To add a vitual host click on the 'Virtual Hosts' link in the left nav column and then click 'Add.' We won't do this for this quick setup.
 
 <a name="config-catalyst-fastcgi"</a>
 ### Configuring the Catalyst FastCGI App
 
 Steps:
 
-* While in "Server Configuration" click 'Server' in the left nav column and then click the 'External Apps' tab on top of the page body. There shouldn't be any apps loaded yet.
-* Click 'Add' in the upper right corner of the table and then select 'Fast CGI App' from the drop down before clicking 'Next'.
-* This brings you to the "FastCGI App Definition" page where you'll tell LiteSpeed how to run the FastCGI app. The FastCGI app can be a stand-alone server (listing via *NIX sockets or TCP) or it can be a local "static" FastCGI started by the server. A stand-alone FastCGI server has been tested successfully with sockets and TCP. There is a setting called 'Persistent Connection' to make a persistent connection to the FastCGI server. Ruby is known to have problems with this. It's unknown if Perl has problems with LiteSpeed's persistent FastCGI connection. To configure this page use the following settings and then click 'Save' and 'Apply Changes'. The 'Name' is just an internal reference and can be anything.
+1. While in "Server Configuration" click 'Server' in the left nav column and then click the 'External Apps' tab on top of the page body. There shouldn't be any apps loaded yet.
+1. Click 'Add' in the upper right corner of the table and then select 'Fast CGI App' from the drop down before clicking 'Next'.
+1. This brings you to the "FastCGI App Definition" page where you'll tell LiteSpeed how to run the FastCGI app. The FastCGI app can be a stand-alone server (listing via *NIX sockets or TCP) or it can be a local "static" FastCGI started by the server. A stand-alone FastCGI server has been tested successfully with sockets and TCP. There is a setting called 'Persistent Connection' to make a persistent connection to the FastCGI server. Ruby is known to have problems with this. It's unknown if Perl has problems with LiteSpeed's persistent FastCGI connection. To configure this page use the following settings and then click 'Save' and 'Apply Changes'. The 'Name' is just an internal reference and can be anything.
 
 ```
 Name: MyApp
@@ -90,19 +92,19 @@ MyApp/script/myapp_fastcgi.pl -l 1030 -n 5 -d
 
 Now that the FastCGI app is configured, we need to let LiteSpeed know what URLs it will respond to. This is done by setting a LiteSpeed 'Context'.
 
-* Go back to the "Server Configuration" page and click on the 'Example' virtual host link at the bottom of the left nav column.
-* Click on the 'Context' tab that appears above the page body and you will see a number of mapped URLs. Click 'Add' and on the next page select 'Fast CGI' from the drop down before clicking 'Next'.
-* This brings you to the "Static Context Definition" page. To have the Catalyst app handle the root directory enter / for URI and make sure 'FastCGI App' is set to the name you configured when setting the 'External App'. Click 'Save' and then 'Apply Changes'
-* You're done. Now just restart the webserver.
+1. Go back to the "Server Configuration" page and click on the 'Example' virtual host link at the bottom of the left nav column.
+1. Click on the 'Context' tab that appears above the page body and you will see a number of mapped URLs. Click 'Add' and on the next page select 'Fast CGI' from the drop down before clicking 'Next'.
+1. This brings you to the "Static Context Definition" page. To have the Catalyst app handle the root directory enter / for URI and make sure 'FastCGI App' is set to the name you configured when setting the 'External App'. Click 'Save' and then 'Apply Changes'
+1. You're done. Now just restart the webserver.
 
 <a name="restart"></a>
 Restarting LiteSpeed
 --------------------
 
-Steps to restart LiteSpeed:
+Steps:
 
-* Click on "Home" in the admin console and then click "Service Manager".
-* Click "Graceful Restart" and your Catalyst app should now be accessible.
+1. Click on "Home" in the admin console and then click "Service Manager".
+1. Click "Graceful Restart" and your Catalyst app should now be accessible.
 
 You can also restart LiteSpeed from the command line. In Red Hat use:
 
