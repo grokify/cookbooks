@@ -9,9 +9,9 @@ Table of Contents
 1. [Overview] (#overview)
 2. [Installing LiteSpeed] (#install)
 3. [Configuring LiteSpeed] (#config)
-..1. [Configuring a Virtual Host] (#config-vhost)
-..2. [Configuring the Catalyst FastCGI App] (#config-catalyst-fastcgi)
-..3. [Configuring the Catalyst FastCGI App Context] (#config-catalyst-fastcgi-context)
+  1. [Configuring a Virtual Host] (#config-vhost)
+  2. [Configuring the Catalyst FastCGI App] (#config-catalyst-fastcgi)
+  3. [Configuring the Catalyst FastCGI App Context] (#config-catalyst-fastcgi-context)
 4. [Restarting LiteSpeed] (#restart)
 5. [Metadata] (#meta)
 
