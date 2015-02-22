@@ -13,7 +13,8 @@ Table of Contents
   2. [Configuring the Catalyst FastCGI App] (#config-catalyst-fastcgi)
   3. [Configuring the Catalyst FastCGI App Context] (#config-catalyst-fastcgi-context)
 4. [Restarting LiteSpeed] (#restart)
-5. [Metadata] (#meta)
+5. [Discussion] (#discuss)
+6. [Meta] (#meta)
 
 <a name="overview"></a>
 Overview
@@ -108,6 +109,14 @@ You can also restart LiteSpeed from the command line. In Red Hat use:
 ```
 # service lsws restart
 ```
+
+<a name="discuss"></a>
+Discuss
+-------
+
+Discussion on this recipe can be found on the LiteSpeed forums:
+
+* [Tutorial in installing LiteSpeed with FastCGI and Catalyst] (http://www.litespeedtech.com/support/forum/threads/tutorial-in-installing-litespeed-with-fastcgi-and-catalyst.500/)
 
 <a name="meta"></a>
 Meta
