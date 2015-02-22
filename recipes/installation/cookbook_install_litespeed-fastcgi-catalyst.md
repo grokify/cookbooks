@@ -124,6 +124,6 @@ Meta
 
 * Author: John Wang
 * Date: 9 Mar 2006
-* License: CC-BY-SA [https://creativecommons.org/licenses/by/3.0/us/](https://creativecommons.org/licenses/by/3.0/us/)
+* License: CC BY 3.0 US [https://creativecommons.org/licenses/by/3.0/us/](https://creativecommons.org/licenses/by/3.0/us/)
 
 END
