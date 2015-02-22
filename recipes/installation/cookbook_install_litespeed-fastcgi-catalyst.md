@@ -87,7 +87,11 @@ MyApp/script/myapp_fastcgi.pl -l /tmp/myapp.socket -n 5 -d
 MyApp/script/myapp_fastcgi.pl -l 1030 -n 5 -d
 ```
 
-NOTE: From mistwang of the LiteSpeed staff: qq[when an application's internal process manager is prefered, you can still let LiteSpeed start the parent process automatically, in that case, just set "instances" to "1", and set the command line parameter '-n' to match "Max Connections" and get rid of "-d" option.] This will be incorporated after it has been tested.
+NOTE: From mistwang of the LiteSpeed staff: 
+
+> when an application's internal process manager is prefered, you can still let LiteSpeed start the parent process automatically, in that case, just set "instances" to "1", and set the command line parameter '-n' to match "Max Connections" and get rid of "-d" option.]
+
+This will be incorporated after it has been tested.
 
 <a name="config-catalyst-fastcgi-context"></a>
 ### Configuring the Catalyst FastCGI App Context
