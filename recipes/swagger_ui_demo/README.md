@@ -16,9 +16,9 @@ $ cd swagger-ui/dist
 $ cp /path/to/myspec.yaml .
 ```
 
-3. Edit the Redirect URL (`oauth2RedirectUrl`) in `swagger-ui-standalone-preset.js`
+3. Edit the Redirect URL in `swagger-ui-standalone-preset.js`
 
-The Redirect URL is hardcoded to `http://localhost:3200/oauth2-redirect.html`. If you want to change this, edit the `swagger-ui/dist/swagger-ui-standalone-preset.js` file and change that URL.
+The Redirect URL parameter (`oauth2RedirectUrl`) is hardcoded to `http://localhost:3200/oauth2-redirect.html`. If you want to change this, edit the `swagger-ui/dist/swagger-ui-standalone-preset.js` file and change that URL.
 
 Here, we will use port `8080`.
 
