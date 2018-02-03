@@ -7,13 +7,13 @@ To get Swagger UI set up and test some APIs, use the following steps.
 
 ```bash
 $ git clone https://github.com/swagger-api/swagger-ui
-$ cd swagger-ui
+$ cd swagger-ui/dist
 ```
 
 2. Copy your Swagger spec to the `swagger-ui/dist` folder
 
 ```bash
-$ cp /path/to/myspec.yaml dist
+$ cp /path/to/myspec.yaml .
 ```
 
 3. Edit the Redirect URL (`oauth2RedirectUrl`) in `swagger-ui-standalone-preset.js`
@@ -23,7 +23,7 @@ The Redirect URL is hardcoded to `http://localhost:3200/oauth2-redirect.html`. I
 Here, we will use port `8080`.
 
 ```
-$ vi dist/swagger-ui-standalone-preset.js
+$ vi swagger-ui-standalone-preset.js
 ```
 
 4. Add the Redirect URL to your app
@@ -36,7 +36,7 @@ One way to run a static HTML server is to use `http-server`:
 
 ```bash
 $ npm install -g http-server
-$ http-server dist -p 8080
+$ http-server . -p 8080
 ```
 
 6. Bring up Swagger UI in your browser
