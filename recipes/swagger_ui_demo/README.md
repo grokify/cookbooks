@@ -20,7 +20,7 @@ $ cp /path/to/myspec.yaml .
 
 The Redirect URL parameter (`oauth2RedirectUrl`) is hardcoded to `http://localhost:3200/oauth2-redirect.html`. If you want to change this, edit the `swagger-ui/dist/swagger-ui-standalone-preset.js` file and change that URL.
 
-Here, we will use port `8080`.
+Here, we will use port `8080`, so edit file, locate the URL and change it to `http://localhost:8080/oauth2-redirect.html`.
 
 ```
 $ vi swagger-ui-standalone-preset.js
@@ -28,7 +28,7 @@ $ vi swagger-ui-standalone-preset.js
 
 4. Add the Redirect URL to your app
 
-In your app console, configure your app to support the Swagger UI Redirect URL
+In your app console, configure your app to support the Swagger UI Redirect URL, `http://localhost:8080/oauth2-redirect.html`.
 
 5. Run a server
 
