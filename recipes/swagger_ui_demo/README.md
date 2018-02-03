@@ -43,10 +43,14 @@ $ http-server dist -p 8080
 
 Go to the Swagger UI URL, e.g. `http://localhost:8080`
 
-7. Authorize
+7. Load your Swagger spec
+
+In the Swagger UI address bar, enter your spec URL, e.g. `http://localhost:8080/myspec.yaml` and click `Explore`.
+
+8. Authorize
 
 Click the `Authorize` button and enter your app and user credentials
 
-8. Call the APIs!
+9. Call the APIs!
 
 You're done, try out the APIs now.
