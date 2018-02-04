@@ -1,6 +1,10 @@
 Swagger UI Demo
 ===============
 
+Swagger UI supports making API calls out of the box with integrated Auth if your auth is speciifed in the Swagger / Open API 2.0 specification. This supports the following OAuth 2.0 grant flows: Authorization Code and Implict grants.
+
+## Installation and Configuration
+
 To get Swagger UI set up and test some APIs, use the following steps.
 
 1. Clone the repo:
@@ -54,3 +58,19 @@ Click the `Authorize` button and enter your app and user credentials
 9. Call the APIs!
 
 You're done, try out the APIs now.
+
+## Swagger Spec Definition
+
+For authorization code without scopes, you can use the following from the [RingCentral](https://developer.ringcentral.com) API spec:
+
+```yaml
+  securityDefinitions: 
+    OAuth2: 
+      type: "oauth2"
+      flow: "accessCode"
+      authorizationUrl: "https://platform.devtest.ringcentral.com/restapi/oauth/authorize"
+      tokenUrl: "https://platform.devtest.ringcentral.com/restapi/oauth/token"
+      scopes: {}
+  security: 
+    - OAuth2: []
+```
